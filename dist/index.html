@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Human Resources — M3</title>
+    <!-- Inline placeholder so the browser's automatic /favicon.ico request does not
+         404 into the console, where it obscures real errors. -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%237d7f5c'/%3E%3Crect x='3' y='5' width='10' height='6' fill='%237fe3b0'/%3E%3C/svg%3E"
+    />
+
+    <style>
+      :root { color-scheme: dark; }
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #1a1712; }
+      canvas { display: block; }
+      /* Dropped clear of the HUD band's left end cap, which reaches down to y≈48 at the
+         centre-left of the screen and was overprinting the first lines of diagnostics. */
+      #overlay {
+        position: fixed;
+        top: 56px;
+        left: 12px;
+        padding: 10px 14px;
+        font: 12px/1.55 ui-monospace, "Cascadia Mono", Consolas, monospace;
+        color: #d8e8dc;
+        background: rgba(12, 20, 16, 0.72);
+        border: 1px solid rgba(120, 230, 180, 0.35);
+        border-radius: 4px;
+        white-space: pre;
+        pointer-events: none;
+        user-select: none;
+      }
+      #overlay b { color: #6ee7a8; font-weight: 600; }
+
+      /* Box-selection rectangle. Screen-space furniture, so it is a DOM element rather than
+         scene geometry — it stays pixel-crisp and costs no extra render pass. */
+      #selectbox {
+        position: fixed;
+        display: none;
+        border: 1px solid #7fe3b0;
+        background: rgba(127, 227, 176, 0.14);
+        pointer-events: none;
+      }
+    </style>
+    <script type="module" crossorigin src="/HumanResourcesLowPoly/assets/index-B5SWd41T.js"></script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    <div id="selectbox"></div>
+  </body>
+</html>
