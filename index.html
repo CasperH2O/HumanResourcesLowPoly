@@ -21,17 +21,39 @@
         position: fixed;
         top: 56px;
         left: 12px;
-        padding: 10px 14px;
+        padding: 34px 14px 10px;
         font: 12px/1.55 ui-monospace, "Cascadia Mono", Consolas, monospace;
         color: #d8e8dc;
         background: rgba(12, 20, 16, 0.72);
         border: 1px solid rgba(120, 230, 180, 0.35);
         border-radius: 4px;
-        white-space: pre;
         pointer-events: none;
         user-select: none;
       }
       #overlay b { color: #6ee7a8; font-weight: 600; }
+      #overlay-content { margin: 0; font: inherit; white-space: pre; }
+      #overlay-toggle {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 22px;
+        height: 22px;
+        padding: 0;
+        border: 1px solid rgba(120, 230, 180, 0.55);
+        border-radius: 3px;
+        color: #d8e8dc;
+        background: rgba(25, 48, 37, 0.9);
+        font: 600 16px/18px ui-monospace, "Cascadia Mono", Consolas, monospace;
+        cursor: pointer;
+        pointer-events: auto;
+      }
+      #overlay-toggle:hover, #overlay-toggle:focus-visible {
+        color: #6ee7a8;
+        border-color: #6ee7a8;
+        outline: none;
+      }
+      #overlay.minimized { width: 34px; height: 34px; padding: 0; }
+      #overlay.minimized #overlay-content { display: none; }
 
       /* Box-selection rectangle. Screen-space furniture, so it is a DOM element rather than
          scene geometry — it stays pixel-crisp and costs no extra render pass. */
@@ -43,10 +65,13 @@
         pointer-events: none;
       }
     </style>
-    <script type="module" crossorigin src="/HumanResourcesLowPoly/assets/index-B5SWd41T.js"></script>
+    <script type="module" crossorigin src="/HumanResourcesLowPoly/assets/index-BUQtTxXH.js"></script>
   </head>
   <body>
-    <div id="overlay"></div>
+    <div id="overlay">
+      <button id="overlay-toggle" type="button" aria-expanded="true" aria-controls="overlay-content" title="Minimize developer panel">&minus;</button>
+      <pre id="overlay-content"></pre>
+    </div>
     <div id="selectbox"></div>
   </body>
 </html>
