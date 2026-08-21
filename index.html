@@ -9,7 +9,9 @@
     <style>
       :root { color-scheme: dark; }
       html, body { margin: 0; height: 100%; overflow: hidden; background: #1a1712; }
-      canvas { display: block; }
+      /* Pointer events implement game-native pinch zoom. Without touch-action: none the browser
+         scales the page instead, and may cancel the gesture before the camera can consume it. */
+      canvas { display: block; touch-action: none; }
       /* Dropped clear of the HUD band's left end cap, which reaches down to y≈48 at the
          centre-left of the screen and was overprinting the first lines of diagnostics. */
       #overlay {
@@ -79,10 +81,10 @@
         pointer-events: none;
       }
     </style>
-    <script type="module" crossorigin src="/HumanResourcesLowPoly/assets/index-2asLo-FA.js"></script>
-    <link rel="modulepreload" crossorigin href="/HumanResourcesLowPoly/assets/three.core-DG6I5xW6.js">
+    <script type="module" crossorigin src="/HumanResourcesLowPoly/assets/index-BRPyfJ2T.js"></script>
+    <link rel="modulepreload" crossorigin href="/HumanResourcesLowPoly/assets/three.core-D_QsyoxR.js">
+    <link rel="modulepreload" crossorigin href="/HumanResourcesLowPoly/assets/factionPalette-DuVOyDzj.js">
     <link rel="modulepreload" crossorigin href="/HumanResourcesLowPoly/assets/SkeletonUtils-CHxfGqZJ.js">
-    <link rel="modulepreload" crossorigin href="/HumanResourcesLowPoly/assets/toon-DLr-bRAE.js">
   </head>
   <body>
     <div id="overlay" class="minimized">
