@@ -30,6 +30,9 @@
         pointer-events: auto;
         user-select: none;
       }
+      /* The static shell fails closed: do not expose an empty developer control while modules,
+         settings, and the first application screen are still loading. */
+      #overlay[hidden] { display: none !important; }
       #overlay b { color: #6ee7a8; font-weight: 600; }
       #overlay-content { font: inherit; }
       .overlay-heading { margin-bottom: 7px; white-space: pre; }
@@ -81,13 +84,13 @@
         pointer-events: none;
       }
     </style>
-    <script type="module" crossorigin src="/HumanResourcesLowPoly/assets/index-Dbd-3NV0.js"></script>
+    <script type="module" crossorigin src="/HumanResourcesLowPoly/assets/index-ZBMo9qRT.js"></script>
     <link rel="modulepreload" crossorigin href="/HumanResourcesLowPoly/assets/three.core-BnugWimV.js">
     <link rel="modulepreload" crossorigin href="/HumanResourcesLowPoly/assets/toon-DLatBX7x.js">
     <link rel="modulepreload" crossorigin href="/HumanResourcesLowPoly/assets/SkeletonUtils-CHxfGqZJ.js">
   </head>
   <body>
-    <div id="overlay" class="minimized">
+    <div id="overlay" hidden class="minimized">
       <button id="overlay-toggle" type="button" aria-expanded="false" aria-controls="overlay-content" title="Restore developer panel">+</button>
       <div id="overlay-content"></div>
     </div>
